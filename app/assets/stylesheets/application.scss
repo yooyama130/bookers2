@@ -15,3 +15,34 @@
  */
 
  @import "bootstrap";
+
+
+main{
+    margin : 20px;
+}
+
+h2{
+    margin-bottom: 0.5rem;
+}
+
+table {
+    width: 100%;
+    margin-bottom : 1rem;
+}
+table th,{
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+label {
+    display: block;
+}
+
+.post-form {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
