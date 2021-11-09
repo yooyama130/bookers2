@@ -1,9 +1,8 @@
 class BooksController < ApplicationController
   def index
     @user = current_user
-    @all_users = User.all
+    @new_book = Book.new
     @all_books = Book.all
-    @book = Book.new
   end
 
   def create
@@ -14,6 +13,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @new_book = Book.new
     @book = Book.find(params[:id])
   end
 
