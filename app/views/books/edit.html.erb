@@ -5,11 +5,11 @@
       <%= form_with model: @book, local: true do |f| %>
        <div class = "form-group">
          <label>Title</label>
-         <%= f.text_field :title, class: "post-form" %>
+         <%= f.text_field :title, class: "update-form" %>
        </div>
        <div class = "form-group">
          <label>Opnion</label>
-         <%= f.text_area :body, class: "post-form"  %>
+         <%= f.text_area :body, class: "update-form"  %>
        </div>
        <div class = "form-group">
          <%= f.submit "Update Book", class: "btn btn-success", method: :update %>
