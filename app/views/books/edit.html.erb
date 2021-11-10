@@ -2,20 +2,33 @@
   <div class="row">
     <div class="mx-auto col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
       <h1>Editng Book</h1>
+      <!--エラーメッセージ-->
+      <% if @book.errors.any? %>
+        <div class="error_explanation">
+          <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <!--編集フォーム-->
       <%= form_with model: @book, local: true do |f| %>
-       <div class = "form-group">
-         <label>Title</label>
-         <%= f.text_field :title, class: "update-form" %>
-       </div>
-       <div class = "form-group">
-         <label>Opnion</label>
-         <%= f.text_area :body, class: "update-form"  %>
-       </div>
-       <div class = "form-group">
-         <%= f.submit "Update Book", class: "btn btn-success", method: :update %>
-       </div>
-     <% end %>
-     <p><%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %></p>
+        <div class="form-group">
+          <label>Title</label>
+          <%= f.text_field :title, class: "update-form" %>
+        </div>
+        <div class="form-group">
+          <label>Opnion</label>
+          <%= f.text_area :body, class: "update-form" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update Book", class: "btn btn-success", method: :update %>
+        </div>
+      <% end %>
+      <p><%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %></p>
     </div>
   </div>
 </div>
