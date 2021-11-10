@@ -69,6 +69,11 @@
 
   <!--メイン-->
   <main>
+    <!--成功しましたメッセージ-->
+    <div class = "success-message">
+      <%= flash[:success] %>
+    </div>
+
     <%= yield %>
   </main>
 
