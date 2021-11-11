@@ -35,6 +35,6 @@ class UsersController < ApplicationController
   def correct_user
     user = User.find(params[:id])
     # 定義したuserと現在ログインしているuserが一致していなければ、ユーザー一覧ページにリダイレクト。
-    redirect_to(users_path) unless user == current_user
+    redirect_to(user_path(current_user)) unless user == current_user
   end
 end
