@@ -26,10 +26,12 @@ class BooksController < ApplicationController
   end
 
   def edit
+    correct_user
     @book = Book.find(params[:id])
   end
 
   def update
+    correct_user
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = 'You have updated book successfully.'
@@ -48,5 +50,12 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def correct_user
+    book = Book.find(params[:id])
+    user = book.user
+    # 定義したuserと現在ログインしているuserが一致していなければ、一覧ページにリダイレクト。
+    redirect_to(books_path) unless user == current_user
   end
 end
