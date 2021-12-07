@@ -2,7 +2,11 @@
  <div class = "col-md-3">
      <!--ユーザーの情報-->
      <h2>User info</h2>
-     <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "img/no_image.jpg" %>
+     <% if user.profile_image.attached? %>
+      <%= image_tag user.profile_image.variant(resize:'100x100') %>
+     <% else %>
+      <%= image_tag 'img/no_image.jpg' %>
+     <% end %>
      <table>
        <tbody>
          <tr></tr>
